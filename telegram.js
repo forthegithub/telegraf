@@ -19,7 +19,7 @@ class Telegram extends ApiClient {
         const id = fileId && fileId.file_id ? fileId.file_id : fileId
         return this.getFile(id)
       })
-      .then((file) => `${this.options.apiRoot}/file/bot${this.token}/${file.file_path}`)
+      .then((file) => `${this.options.apiRoot}/file/${options.apiTokenPrefix}${this.token}/${file.file_path}`)
   }
 
   getUpdates (timeout, limit, offset, allowedUpdates) {
