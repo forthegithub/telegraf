@@ -38,7 +38,8 @@ const DEFAULT_OPTIONS = {
   agent: new https.Agent({
     keepAlive: true,
     keepAliveMsecs: 10000
-  })
+  }),
+  apiTokenPrefix: 'bot'
 }
 
 const WEBHOOK_REPLY_STUB = {
@@ -263,7 +264,7 @@ class ApiClient {
       : buildJSONConfig(payload)
     return buildConfig
       .then((config) => {
-        const apiUrl = `${options.apiRoot}/bot${token}/${method}`
+        const apiUrl = `${options.apiRoot}/${options.apiTokenPrefix}${token}/${method}`
         config.agent = options.agent
         return fetch(apiUrl, config)
       })
