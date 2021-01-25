@@ -20,6 +20,11 @@ export interface TelegramOptions {
    * Path to API. default: https://api.telegram.org
    */
   apiRoot?: string
+
+  /**
+   * Api user's token prefix. default: bot
+   */
+  apiTokenPrefix?: string
 }
 
 declare class ApiClient {
